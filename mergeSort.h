@@ -18,10 +18,11 @@ class MergeSort
         MergeSort();
         ~MergeSort();
 
-        bool sorter(const int []);
+        bool sorter(int []);
+        void displaySortedArr();
 
     private:
-        int origArr[MAX_SIZE];
+        int temp[MAX_SIZE];
         int *locOrigArr;
 
         void mergeSort(int, int);

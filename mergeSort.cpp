@@ -7,22 +7,23 @@ Purpose: 1-3 sentences about your program.
 #include "mergeSort.h"
 
 //Public Methods
-MergeSort::MergeSort()
-{   
-    locOrigArr = origArr;
-}
+MergeSort::MergeSort(){}
 
 MergeSort::~MergeSort() {}
 
-bool MergeSort::sorter(const int fixItUp[])
+bool MergeSort::sorter(int fixItUp[])
+{
+    locOrigArr = fixItUp;
+    mergeSort(0, MAX_SIZE-1);
+    return true;
+}
+
+void MergeSort::displaySortedArr()
 {
     for(int i = 0; i < MAX_SIZE; i++) 
     {
-        origArr[i] = fixItUp[i];
+        cout<<locOrigArr[i]<<endl;
     }
-    cout<<endl;
-    mergeSort(0, MAX_SIZE-1);
-    return true;
 }
 
 //Private Methods
@@ -32,5 +33,43 @@ void MergeSort::mergeSort(int first, int last)
         int middle = (first + last)/2;
         mergeSort(first, middle);
         mergeSort(middle+1, last);
+        merge(first, middle, last);
+    }
+}
+
+void MergeSort::merge(int first, int middle, int last)
+{   
+    int begin1, tempIndex;
+    begin1 = tempIndex = first;
+    int begin2 = middle + 1;
+    
+    while(begin1 <= middle && begin2 <= last) {
+        if(locOrigArr[begin1] <= locOrigArr[begin2]) {
+            temp[tempIndex] = locOrigArr[begin1];
+            begin1++;
+        } else {
+            temp[tempIndex] = locOrigArr[begin2];
+            begin2++;
+        }
+        tempIndex++;
+    }
+
+    while(begin1 <= middle) 
+    {
+        temp[tempIndex] = locOrigArr[begin1];
+        begin1++;
+        tempIndex++;
+    }
+
+    while(begin2 <= last)
+    {
+        temp[tempIndex] = locOrigArr[begin2];
+        begin2++;
+        tempIndex++;
+    }
+
+    for (int i = first; i <= last; i ++)
+    {
+        locOrigArr[i] = temp[i];
     }
 }

@@ -11,4 +11,5 @@ int main (int argc, char **argv)
     MergeSort mergeTest;
     int testThis[] = {9, 8, 7, 6, 5, 4, 3, 2};
     mergeTest.sorter(testThis);
+    mergeTest.displaySortedArr();
 }
