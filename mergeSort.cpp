@@ -20,20 +20,17 @@ bool MergeSort::sorter(const int fixItUp[])
     {
         origArr[i] = fixItUp[i];
     }
-    for(int i = 0; i < MAX_SIZE; i++) 
-    {
-        cout<<locOrigArr[i]<<endl;
-    }
-    //mergeSort(0, MAX_SIZE);
+    cout<<endl;
+    mergeSort(0, MAX_SIZE-1);
     return true;
 }
 
-// //Private Methods
-// void MergeSort::mergeSort(int first, int last)
-// {
-//     if (first < last) {
-//         int middle = (first + last)/2;
-//         mergeSort(first, middle);
-//         mergeSort(middle+1, last);
-//     }
-// }
+//Private Methods
+void MergeSort::mergeSort(int first, int last)
+{
+    if (first < last) {
+        int middle = (first + last)/2;
+        mergeSort(first, middle);
+        mergeSort(middle+1, last);
+    }
+}
