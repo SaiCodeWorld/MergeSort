@@ -18,8 +18,9 @@ class MergeSort
 
     private:
         int origArr[MAX_SIZE];
-        
-        void mergeSort(int [], int first, int last);
-        void merge(int [], int first, int mid, int last);
+        int *locOrigArr;
+
+        void mergeSort(int, int);
+        void merge(int, int, int);
 };
 #endif //MERGE_SORT_H
