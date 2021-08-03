@@ -1,3 +1,4 @@
+
 /*********************
 Name: Sai Sivakumar
 Merge Sort With Arrays C++
@@ -18,12 +19,12 @@ class MergeSort
         MergeSort();
         ~MergeSort();
 
-        bool sorter(int []);
+        bool sorter(int, int []);
         void displaySortedArr();
 
     private:
-        int temp[MAX_SIZE];
         int *locOrigArr;
+        int arraySize;
 
         void mergeSort(int, int);
         void merge(int, int, int);

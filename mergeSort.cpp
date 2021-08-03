@@ -7,20 +7,24 @@ Purpose: 1-3 sentences about your program.
 #include "mergeSort.h"
 
 //Public Methods
-MergeSort::MergeSort(){}
+MergeSort::MergeSort()
+{
+    arraySize = 0;
+}
 
 MergeSort::~MergeSort() {}
 
-bool MergeSort::sorter(int fixItUp[])
-{
+bool MergeSort::sorter(int size, int fixItUp[])
+{   
+    arraySize = size;
     locOrigArr = fixItUp;
-    mergeSort(0, MAX_SIZE-1);
+    mergeSort(0, arraySize - 1);
     return true;
 }
 
 void MergeSort::displaySortedArr()
 {
-    for(int i = 0; i < MAX_SIZE; i++) 
+    for(int i = 0; i < arraySize; i++) 
     {
         cout<<locOrigArr[i]<<endl;
     }
@@ -39,6 +43,7 @@ void MergeSort::mergeSort(int first, int last)
 
 void MergeSort::merge(int first, int middle, int last)
 {   
+    int temp[arraySize];
     int begin1, tempIndex;
     begin1 = tempIndex = first;
     int begin2 = middle + 1;
@@ -73,3 +78,4 @@ void MergeSort::merge(int first, int middle, int last)
         locOrigArr[i] = temp[i];
     }
 }
+
