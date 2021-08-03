@@ -10,21 +10,22 @@ Purpose: 1-3 sentences about your program.
 MergeSort::MergeSort()
 {   
     locOrigArr = origArr;
-    for(int i = 0; i < MAX_SIZE; i++)
-    {
-        locOrigArr[i] = i;
-    }
 }
 
 MergeSort::~MergeSort() {}
 
-bool MergeSort::sorter(int fixItUp[])
+bool MergeSort::sorter(const int fixItUp[])
 {
     for(int i = 0; i < MAX_SIZE; i++) 
     {
         origArr[i] = fixItUp[i];
     }
+    for(int i = 0; i < MAX_SIZE; i++) 
+    {
+        cout<<locOrigArr[i]<<endl;
+    }
     //mergeSort(0, MAX_SIZE);
+    return true;
 }
 
 // //Private Methods
