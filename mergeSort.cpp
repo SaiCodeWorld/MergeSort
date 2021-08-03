@@ -44,9 +44,10 @@ void MergeSort::mergeSort(int first, int last)
 void MergeSort::merge(int first, int middle, int last)
 {   
     int temp[arraySize];
-    int begin1, tempIndex;
+    int begin1, tempIndex, begin2;
+
     begin1 = tempIndex = first;
-    int begin2 = middle + 1;
+    begin2 = middle + 1;
     
     while(begin1 <= middle && begin2 <= last) {
         if(locOrigArr[begin1] <= locOrigArr[begin2]) {
@@ -59,19 +60,8 @@ void MergeSort::merge(int first, int middle, int last)
         tempIndex++;
     }
 
-    while(begin1 <= middle) 
-    {
-        temp[tempIndex] = locOrigArr[begin1];
-        begin1++;
-        tempIndex++;
-    }
-
-    while(begin2 <= last)
-    {
-        temp[tempIndex] = locOrigArr[begin2];
-        begin2++;
-        tempIndex++;
-    }
+    finishFillingArray(&begin1, &middle, &tempIndex, temp);
+    finishFillingArray(&begin2, &last, &tempIndex, temp);
 
     for (int i = first; i <= last; i ++)
     {
@@ -79,3 +69,12 @@ void MergeSort::merge(int first, int middle, int last)
     }
 }
 
+void MergeSort::finishFillingArray(int *first, int *last, int *tempIndex, int temp[])
+{
+    while(*first <= *last) 
+    {
+        temp[*tempIndex] = locOrigArr[*first];
+        (*first)++;
+        (*tempIndex)++;
+    }
+}

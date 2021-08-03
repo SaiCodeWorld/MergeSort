@@ -28,5 +28,7 @@ class MergeSort
 
         void mergeSort(int, int);
         void merge(int, int, int);
+
+        void finishFillingArray(int*, int*, int*, int*);
 };
 #endif //MERGE_SORT_H
